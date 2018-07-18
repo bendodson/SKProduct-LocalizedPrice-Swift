@@ -8,12 +8,10 @@
 import StoreKit
 
 extension SKProduct {
-    
-    func localizedPrice() -> String {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
-        formatter.locale = self.priceLocale
-        return formatter.stringFromNumber(self.price)!
+    var localizedPrice: String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = priceLocale
+        return formatter.string(from: price)
     }
-    
 }
